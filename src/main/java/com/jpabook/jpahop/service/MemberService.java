@@ -1,10 +1,8 @@
 package com.jpabook.jpahop.service;
 
 import com.jpabook.jpahop.domain.Member;
-import com.jpabook.jpahop.repository.MemberRepository;
-import lombok.AllArgsConstructor;
+import com.jpabook.jpahop.repository.MemberRepository2;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,7 +49,7 @@ public class MemberService {
     }
     */
 
-    private final MemberRepository memberRepository; // Lombok RequiredArgsConstructor에 의해 생성자 자동생성성
+    private final MemberRepository2 memberRepository2; // Lombok RequiredArgsConstructor에 의해 생성자 자동생성성
 
    /**
      * 회원가입
@@ -60,12 +58,12 @@ public class MemberService {
     @Transactional
     public Long join(Member member) {
         validateDuplicateMember(member); // 중복회원 검증
-        memberRepository.save(member);
+        memberRepository2.save(member);
         return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getName());
+        List<Member> findMembers = memberRepository2.findByName(member.getName());
         if( !findMembers.isEmpty() ){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
@@ -76,10 +74,10 @@ public class MemberService {
     */
     // 회원 전체 조회
     public List<Member> findMembers(){
-        return memberRepository.findAll();
+        return memberRepository2.findAll();
     }
 
     public Member findOne(Long memberId){
-        return memberRepository.findOne(memberId);
+        return memberRepository2.findOne(memberId);
     }
 }

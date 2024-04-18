@@ -2,18 +2,14 @@ package com.jpabook.jpahop.repository;
 
 import com.jpabook.jpahop.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Repository //Spring이 Component를 Scan해서 Bean으로 등록 - 내부에 @Component 포함하고 있음.
 @RequiredArgsConstructor
-public class MemberRepository {
+public class MemberRepository2 {
 
     /* // Lombok의 @RequiredArgsConstructor를 활용해서 대체
     @PersistenceContext //JPA가 제공하는 표준 Annotation

@@ -10,11 +10,9 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MemberRepositoryTest {
+public class MemberRepository2Test {
 
     @Autowired MemberRepository memberRepository;
 
@@ -34,6 +32,17 @@ public class MemberRepositoryTest {
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
         Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
         Assertions.assertThat(findMember).isEqualTo(member);
+    }
+
+    @Test
+    public void sampleTest(){
+        //given
+        int a = 0;
+        int b = 1;
+        int sum = a + b;
+        int result = 1;
+
+        Assertions.assertThat(sum).isEqualTo(result);
     }
 
 }
