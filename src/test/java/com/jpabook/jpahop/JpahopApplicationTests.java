@@ -13,4 +13,9 @@ public class JpahopApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testCase(){
+
+	}
+
 }
